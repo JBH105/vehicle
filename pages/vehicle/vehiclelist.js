@@ -10,13 +10,12 @@ export default function Vehiclelist() {
 
   useEffect(() => {
     async function Data() {
-      if (user) {
-        const { data } = await handleGetVehicle(user?._id);
-        setVehicleData(data);
-      }
+      const id = localStorage.getItem("id");
+      const { data } = await handleGetVehicle(id);
+      setVehicleData(data);
     }
     Data();
-  }, [user]);
+  }, []);
   return (
     <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1">
       {vehicleData?.length > 0 ? (

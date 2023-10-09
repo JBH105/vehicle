@@ -4,10 +4,10 @@ import React, { useContext, useEffect } from "react";
 
 export default function Index() {
   const router = useRouter();
-  const { user } = useContext(GlobalContext);
 
   useEffect(() => {
-    if (user) {
+    const token = localStorage.getItem("token")
+    if (token) {
       router.push("/vehicle/vehiclelist");
     } else {
       router.push("/auth/login");

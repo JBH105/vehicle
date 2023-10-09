@@ -13,11 +13,11 @@ const Login = () => {
     setUserData({ ...userData, [event.target.name]: event.target.value });
   };
   useEffect(() => {
-    // Check if the user is already authenticated
-    if (user) {
+    const token = localStorage.getItem("token");
+    if (token) {
       router.push("/vehicle/vehiclelist"); // Redirect to the desired page
     }
-  }, [user]);
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
