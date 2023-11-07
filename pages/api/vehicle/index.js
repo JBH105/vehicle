@@ -15,7 +15,7 @@ export default async (req, res) => {
       const newuser = new vehicle(data);
       await newuser.save();
 
-      res.status(200).json({ user: newuser, message: "Successful " });
+      res.status(200).json({ user: newuser, message: "Successfully " });
     } catch (error) {
       return res.status(404).json({ message: "Internal Server Error" });
     }

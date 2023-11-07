@@ -94,6 +94,40 @@ const AuthProvider = ({ children }) => {
       throw err; // Rethrow the error to be caught by the calling function
     }
   };
+
+  const handleCreateCertificate = async (values) => {
+    try {
+      const result = await invokeServer("post", "/api/certificate", values);
+      if (result.status === 200) {
+        addToast(result?.data.message, "success");
+      } else {
+        addToast(result?.data.message, "error");
+      }
+      return result;
+    } catch (err) {
+      addToast(err?.response?.data?.message || err?.message, "error");
+      throw err;
+    }
+  };
+
+  const handleSearchCertificate = async (id, values) => {
+    try {
+      const result = await invokeServer(
+        "post",
+        `/api/certificate/${id}`,
+        values
+      );
+      if (result.status === 200) {
+        addToast(result?.data.message, "success");
+      } else {
+        addToast(result?.data.message, "error");
+      }
+      return result;
+    } catch (err) {
+      addToast(err?.response?.data?.message || err?.message, "error");
+      throw err;
+    }
+  };
   return (
     <GlobalContext.Provider
       value={{
@@ -110,6 +144,8 @@ const AuthProvider = ({ children }) => {
         handleCreateUser,
         handleCreateVehicle,
         handleGetVehicle,
+        handleCreateCertificate,
+        handleSearchCertificate
       }}
     >
       {children}

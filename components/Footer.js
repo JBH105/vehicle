@@ -65,6 +65,26 @@ const Footer = () => {
             </span>
           </li>
         </Link>
+        <Link href="/vehicle/addcertificate" className="cursor-pointer">
+          <li>
+            <Image
+              alt="restaurant"
+              width={20}
+              height={20}
+              className="mx-auto"
+              src="/assets/icons/cashier.png"
+            />
+            <span
+              className={`${
+                router.pathname === "/vehicle/addcertificate"
+                  ? "text-orange"
+                  : "text-black"
+              } text-xs`}
+            >
+              Add Certificate
+            </span>
+          </li>
+        </Link>
         {/* <Link href={`/${table_id}/${restaurant_id}/payment`} className='cursor-pointer'>
           <li>
             <Image alt='cashier' width={20} height={20} className="mx-auto" src="/assets/icons/cashier.png" />
