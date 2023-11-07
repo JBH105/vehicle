@@ -38,13 +38,13 @@ const Search = () => {
         />
         <BiSearchAlt className="absolute top-[14px] left-[14px]" />
       </div>
-      <div className="min-h-[calc(100vh_-_300px)] flex items-center">
+      <div className="flex items-center">
         {documentData?.length > 0 ? (
           documentData?.map((items, index) => {
             return (
               <div
                 key={index}
-                className="px-4 cursor-pointer md:group py-5 border-transparent radius-2 "
+                className="px-4 cursor-pointer md:group py-12 border-transparent radius-2 "
               >
                 <div className="block max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
                   <div className="flex justify-between">
@@ -59,7 +59,7 @@ const Search = () => {
             );
           })
         ) : (
-          <div className="max-w-[300px] mx-auto text-center">
+          <div className="max-w-[300px] py-20 mx-auto text-center">
             <p className="text-[14px]  block leading-[24px] text-gray-500">
               You can search for <br /> menu item names or description.
             </p>
