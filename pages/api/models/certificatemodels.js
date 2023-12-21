@@ -7,10 +7,10 @@ const certificateSchema = new mongoose.Schema({
     required: true,
   },
   startnumber: {
-    type: String,
+    type: Number,
   },
   endnumber: {
-    type: String,
+    type: Number,
   },
   document: {
     type: String,

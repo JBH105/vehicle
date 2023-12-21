@@ -31,7 +31,9 @@ const AddCertificate = () => {
     const newData = inputList.map((item) => {
       item.document = document;
       item.userID = user?._id;
-      return item;
+      item.startnumber = parseInt(item.startnumber);
+      item.endnumber = parseInt(item.endnumber);
+      return item
     });
     const body = {
       data: newData,

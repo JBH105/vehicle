@@ -9,6 +9,7 @@ dbConnect();
 export default async (req, res) => {
   const { method } = req;
 
+
   if (method === "GET") {
     try {
       const { id } = req.query;
@@ -31,11 +32,12 @@ export default async (req, res) => {
       const { documentNumber } = req.body;
 
       const data = await certificatemodels.find({
-        userID: id,
-        startnumber: { $lte: documentNumber },
-        endnumber: { $gte: documentNumber },
+        //userID: id,
+        startnumber: { $lte: parseInt(documentNumber)},
+        endnumber: { $gte: parseInt(documentNumber)},
       });
 
+      console.log(data);
       if (!data) {
         return res.status(400).json({ success: false });
       }
