@@ -12,6 +12,10 @@ const Search = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const value = event.target.value;
+    if(value == '' || value == undefined) {
+      setDocumentData([]);
+      return;
+    }
     const categoryData = {};
     categoryData.documentNumber = value;
     categoryData.apitype = "Certificate";
@@ -26,7 +30,7 @@ const Search = () => {
     <div className="max-w-7xl w-full px-4  mx-auto">
       <div className="my-5 mx-4 justify-center pt-7 flex items-center relative">
         <h2 className="font-bold text-[24px] text-gray-800 text-center ">
-          Search the Vehicle
+          Search the Certificate
         </h2>
         {/* <button onClick={() => router.back()} className='outline-none absolute right-0 focus:outline-none'><IoClose className='w-5 h-5 font-bold' /></button> */}
       </div>
